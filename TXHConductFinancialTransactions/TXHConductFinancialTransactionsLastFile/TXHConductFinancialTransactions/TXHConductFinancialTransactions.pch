@@ -1,0 +1,122 @@
+//
+//  TXHConductFinancialTransactions.pch
+//  TXHConductFinancialTransactions
+//
+//  Copyright (c) 2015年 rongyu100. All rights reserved.
+//
+
+#ifndef TXHConductFinancialTransactions_TXHConductFinancialTransactions_pch
+#define TXHConductFinancialTransactions_TXHConductFinancialTransactions_pch
+#endif
+
+#ifdef __OBJC__
+//头文件
+#include <Foundation/Foundation.h>
+#include <UIKit/UIKit.h>
+#import "UnLoginHomePageViewController.h"
+#import "EncryptionManager.h"
+#import "ConstantString.h"
+#import "Tool.h"
+#include "WToast.h"
+#import "UIViewController+NavigationBarStyle.h"
+
+//支付
+#import "LLPayUtil.h"
+#import "LLPaySdk.h"
+
+//加密key
+#define VERSION 2
+
+//22333674
+
+//url文件
+#define API_Help  @"http://s.aiben123.com/help/help.html"
+#define API_About @"http://s.aiben123.com/about/about.html"
+#define API_Item  @"http://s.aiben123.com/item/item.html"
+
+//17090872779 147258
+#define api_domain @"http://s.aiben123.com/"
+//登录
+#define API_Login @"api/account/login"
+//获取验证码
+#define API_VertifyCode @"api/account/getSmsVerifyCode"
+//校验验证码
+#define API_CheckVertifyCode @"api/account/checkSmsVerifyCode"
+//注册／重置密码
+#define API_Register @"api/account/register"
+//活动列表
+#define API_NoticeList @"api/notice/list"
+//用户资产信息
+#define API_UserAsset @"api/asset/info"
+//理财用户信息
+#define API_UserInfo  @"api/account/info"
+//交易记录
+#define API_DealDetail @"api/deal/logs"
+//收益记录
+#define API_EarnDetail @"api/income/logs"
+//投资
+#define API_Investment @"api/deal/invest"
+//提现前
+#define API_CashPre @"api/deal/cashPre"
+//提现申请
+#define API_CashApplay @"api/deal/cashApply"
+//充值前
+#define API_PayPre     @"api/pay/ll/payPre"
+//用户第一次支付并且成功，发送银行卡信息
+#define API_PaySuceess @"api/pay/ll/payBankCard"
+//充值失败日志记录
+#define API_FailedLog  @"api/failLog/record"
+//加息体验卷
+#define API_ActiveLog  @"api/active/activeLog/list"
+
+//公告列表
+#define API_List      @"api/notice/list"
+
+//理财项目列表
+#define API_AssetDetail @"api/asset/detail"
+//投资列表
+#define  API_product   @"api/product/list"
+//收益记录
+#define API_Income     @"api/income/logs"
+
+#define kkValidChar   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+#define kkNumber @"0123456789."
+
+#define BackColor TomColor(0xefeff4)
+
+//iOS 系统版本
+#define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
+#define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define IOS_IS_AT_LEAST_8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+#define iPhone6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+#define TomColor(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//字体
+#define FontName @"HelveticaNeue-Light"
+#define FontNameBold @"HelveticaNeue-Bold"
+
+//定义Frame
+#define kScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
+
+//定义popViewControllerAnimated
+#define kPop [self.navigationController popViewControllerAnimated:YES]
+
+#ifdef DEBUGLOGGER
+# define DELog(fmt, ...) NSLog((@"[函数名:%s]       " "[行号:%d] \n" fmt),__FUNCTION__, __LINE__, ##__VA_ARGS__);
+# define DFLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define DELog(...);
+# define DFLog(...);
+#endif
+
+#endif

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeAssetTableViewCellID" rowHeight="185" id="KGk-i7-Jjw" customClass="HomeAssetTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总资产（元）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txF-I4-TXZ">
+                        <rect key="frame" x="0.0" y="23" width="320" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="LFW-Hw-8Vz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-vL-n6H">
+                        <rect key="frame" x="0.0" y="49" width="320" height="54"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3u-w5-UkI">
+                        <rect key="frame" x="0.0" y="123" width="320" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日年化收益率     8.00%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-z1-Sm2">
+                                <rect key="frame" x="100" y="0.0" width="220" height="20"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TRU-71-vuq">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="fSO-Jd-5tC"/>
+                                    <constraint firstAttribute="width" constant="75" id="h96-HJ-sNg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_yesterday_rate.png" translatesAutoresizingMaskIntoConstraints="NO" id="imM-CL-u5Z">
+                                <rect key="frame" x="75" y="0.0" width="25" height="20"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="cfj-WE-8rw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="imM-CL-u5Z" firstAttribute="top" secondItem="TRU-71-vuq" secondAttribute="top" id="3Bp-d7-9WK"/>
+                            <constraint firstItem="imM-CL-u5Z" firstAttribute="top" secondItem="P3u-w5-UkI" secondAttribute="top" id="Aap-P4-6Te"/>
+                            <constraint firstItem="8M3-z1-Sm2" firstAttribute="bottom" secondItem="imM-CL-u5Z" secondAttribute="bottom" id="EfR-4g-pUN"/>
+                            <constraint firstItem="imM-CL-u5Z" firstAttribute="leading" secondItem="TRU-71-vuq" secondAttribute="trailing" id="G0F-z9-lWr"/>
+                            <constraint firstItem="imM-CL-u5Z" firstAttribute="bottom" secondItem="TRU-71-vuq" secondAttribute="bottom" id="JSX-p9-qLQ"/>
+                            <constraint firstItem="8M3-z1-Sm2" firstAttribute="top" secondItem="imM-CL-u5Z" secondAttribute="top" id="Y8c-0u-Jws"/>
+                            <constraint firstItem="8M3-z1-Sm2" firstAttribute="leading" secondItem="imM-CL-u5Z" secondAttribute="trailing" id="dYc-q6-0u9"/>
+                            <constraint firstItem="TRU-71-vuq" firstAttribute="leading" secondItem="P3u-w5-UkI" secondAttribute="leading" id="umx-aO-uId"/>
+                            <constraint firstAttribute="trailing" secondItem="8M3-z1-Sm2" secondAttribute="trailing" id="w9M-Wp-2X7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="wUm-vL-n6H" firstAttribute="trailing" secondItem="txF-I4-TXZ" secondAttribute="trailing" id="3er-4h-xP9"/>
+                    <constraint firstItem="wUm-vL-n6H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Hl-hN-rWg"/>
+                    <constraint firstAttribute="centerX" secondItem="P3u-w5-UkI" secondAttribute="centerX" id="83U-7o-nfQ"/>
+                    <constraint firstItem="P3u-w5-UkI" firstAttribute="leading" secondItem="wUm-vL-n6H" secondAttribute="leading" id="OFD-XZ-5gS"/>
+                    <constraint firstItem="P3u-w5-UkI" firstAttribute="trailing" secondItem="wUm-vL-n6H" secondAttribute="trailing" id="RtY-Dp-8rz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="P3u-w5-UkI" secondAttribute="bottom" constant="5" id="Sq6-1p-M81"/>
+                    <constraint firstAttribute="trailing" secondItem="wUm-vL-n6H" secondAttribute="trailing" id="a1P-c0-o4V"/>
+                    <constraint firstItem="wUm-vL-n6H" firstAttribute="leading" secondItem="txF-I4-TXZ" secondAttribute="leading" id="gOB-Jn-j3S"/>
+                    <constraint firstItem="wUm-vL-n6H" firstAttribute="top" secondItem="txF-I4-TXZ" secondAttribute="bottom" constant="5" id="glQ-sX-rhz"/>
+                    <constraint firstItem="txF-I4-TXZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="ooG-yU-MjH"/>
+                    <constraint firstItem="P3u-w5-UkI" firstAttribute="top" secondItem="wUm-vL-n6H" secondAttribute="bottom" constant="20" id="vPr-SE-Png"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="leftSpaceConstraints" destination="h96-HJ-sNg" id="YXe-0n-lwJ"/>
+                <outlet property="middleSpaceConstraints" destination="vPr-SE-Png" id="Bkb-YM-ma3"/>
+                <outlet property="rateLabel" destination="8M3-z1-Sm2" id="YfN-bi-JiJ"/>
+                <outlet property="topSpaceConstraints" destination="ooG-yU-MjH" id="0Yd-ub-Orz"/>
+                <outlet property="totalMoney" destination="wUm-vL-n6H" id="0LC-YO-Yhs"/>
+            </connections>
+            <point key="canvasLocation" x="558" y="411.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_yesterday_rate.png" width="11" height="16"/>
+    </resources>
+</document>
