@@ -39,6 +39,7 @@
 
 @property (nonatomic, copy) NSString *bankCardNum;
 @property (nonatomic, copy) NSString *idCard;
+@property (nonatomic, copy) NSString *identityCard;
 @property (nonatomic, copy) NSString *isFirstPay;
 @property (nonatomic, copy) NSString *orderNum;
 @property (nonatomic, copy) NSString *phoneNumber;

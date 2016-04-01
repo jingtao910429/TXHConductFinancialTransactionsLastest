@@ -200,7 +200,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 //            
 //        }
         
-        cell.rateLabel.text = [NSString stringWithFormat:@"昨日年化收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
+        cell.rateLabel.text = [NSString stringWithFormat:@"当前年化收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -317,7 +317,11 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
                     
                     NoticeListModel *model = [[NoticeListModel alloc] init];
                     [model setValuesForKeysWithDictionary:subDict];
-                    [self.images addObject:model];
+                    
+                    if (self.images.count < 3) {
+                        [self.images addObject:model];
+                    }
+                    
                 }
                 
                 [self.contentTableView reloadData];

@@ -57,7 +57,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self navigationBarStyleWithTitle:@"我的活动卷" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"我的活动券" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.view addSubview:self.contentTableView];
     
@@ -118,6 +118,15 @@
          "limit":1000,// 最少投资金额
          "createDate":"2015-11-05 14:29:24",// 领取日期
          }
+         
+         */
+        
+        /*
+         
+         活动券
+         1、增加了一个类别：type=10
+         2、属于体验金
+         3、天数=0是无效，天数=-1是未激活，天数>0是使用中。
          
          */
         

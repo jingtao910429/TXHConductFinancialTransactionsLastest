@@ -116,8 +116,8 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
         if (self.isFirstPay) {
             //如果没有银行卡
             
-            self.nameArr=@[@"账户余额(元)：",@"银行卡：",@"身份证：",@"真实姓名：",@"提现金额(元)："];
-            self.textArr = @[@"",@"请输入银行卡号",@"输入您的身份证",@"输入您的真实姓名",@"输入提现金额"];
+            self.nameArr=@[@"账户余额(元)：",@"银行卡：",@"身份证：",@"真实姓名：",@"充值金额(元)："];
+            self.textArr = @[@"",@"请输入银行卡号",@"输入您的身份证",@"输入您的真实姓名",@"输入充值金额"];
             
             return 7;
         }else{
@@ -515,6 +515,11 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
 #pragma mark - 订单支付
 - (void)pay {
     
+    if ([self.inputMoneyTF.text intValue] < 1) {
+        [Tool ToastNotification:@"充值最小金额1元"];
+        return;
+    }
+    
     
     LLPayUtil *payUtil = [[LLPayUtil alloc] init];
     
@@ -566,8 +571,16 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     [dict setValue:self.inputMoneyTF.text forKey:@"money_order"];
     
     //风险控制参数
-    NSDictionary *ristDict = [NSDictionary dictionaryWithObjectsAndKeys:@"13958069593",@"user_info_bind_phone",
-                              @"201407251110120",@"user_info_dt_register",@"4.0",@"frms_ware_category",@"1122111221",@"request_imei",nil];
+    NSDictionary *ristDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"2009",@"frms_ware_category",
+                              [NSString stringWithFormat:@"%@",[Tool getUserInfo][@"id"]],@"user_info_mercht_userno",
+                              
+                              self.payPreModel.phoneNumber,@"user_info_bind_phone",
+                              self.payPreModel.regDate,@"user_info_dt_register",
+                              self.payPreModel.realName,@"user_info_full_name",
+                              self.payPreModel.idCard ? self.payPreModel.idCard :self.payPreModel.identityCard,@"user_info_id_no",
+                              @"1",@"user_info_identify_type",
+                              @"1",@"user_info_identify_state",nil];
     [dict setValue: [LLPayUtil jsonStringOfObj:ristDict] forKey:@"risk_item"];
     
     [dict setValue:kLLOidPartner forKey:@"oid_partner"];
@@ -576,7 +589,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
         
         
         [dict addEntriesFromDictionary:@{
-                                         @"id_no":self.payPreModel.idCard,
+                                         @"id_no":self.payPreModel.idCard ? self.payPreModel.idCard :self.payPreModel.identityCard,
                                          //证件号码 id_no 否 String
                                          @"acct_name":self.payPreModel.realName,
                                          //银行账号姓名 acct_name 否 String
