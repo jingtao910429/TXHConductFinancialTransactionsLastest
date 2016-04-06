@@ -63,9 +63,6 @@ typedef enum LLPayResult {
 // 认证支付
 - (void)presentVerifyPaySdkInViewController:(UIViewController*)viewController withTraderInfo:(NSDictionary*)traderInfo;
 
-// 预授权支付
-- (void)presentPreAuthPaySdkInViewController:(UIViewController*)viewController withTraderInfo:(NSDictionary*)traderInfo;
-
 
 @property (nonatomic, assign) NSObject<LLPaySdkDelegate> *sdkDelegate;
 

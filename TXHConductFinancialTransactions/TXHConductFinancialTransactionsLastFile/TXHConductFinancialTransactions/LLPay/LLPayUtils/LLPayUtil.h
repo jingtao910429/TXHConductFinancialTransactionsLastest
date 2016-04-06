@@ -14,7 +14,7 @@ typedef enum : NSUInteger {
 } LLPaySignMethod;
 
 
-//#define kLLPayUtilNeedRSASign
+#define kLLPayUtilNeedRSASign
 
 @interface LLPayUtil : NSObject
 

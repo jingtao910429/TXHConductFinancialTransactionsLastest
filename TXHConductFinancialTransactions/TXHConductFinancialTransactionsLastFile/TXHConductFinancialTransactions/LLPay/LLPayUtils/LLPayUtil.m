@@ -11,7 +11,16 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 #ifdef kLLPayUtilNeedRSASign
-#import "LLPDataSigner.h"
+
+@protocol LLPDataSigner
+
+- (NSString *)algorithmName;
+- (NSString *)signString:(NSString *)string;
+
+@end
+
+id<LLPDataSigner> LLPCreateRSADataSigner(NSString *privateKey);
+
 #endif
 
 @interface LLPayUtil()

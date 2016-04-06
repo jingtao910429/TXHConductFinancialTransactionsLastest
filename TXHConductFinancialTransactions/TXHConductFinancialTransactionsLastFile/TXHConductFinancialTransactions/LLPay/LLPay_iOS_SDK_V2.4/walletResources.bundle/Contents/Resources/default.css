@@ -52,7 +52,7 @@ NavBar {left:0px;top:0px;width:320px;height:44px;font-size:19px;font-color:#ffff
 /*titleIconName: 绑卡支付界面的标题图标
  titleIconName2: 历史卡支付界面的标题图标
  titleText,当自定义导航条title的时候，可以在NavBar后面添加titleText，格式为titleText:xxx即可*/
-    
+
 .numText{keyboard-type:num;}
 .splitLine{width:320px;height:1px;image:examSplitline.png;}
 
@@ -116,7 +116,7 @@ basePage{}
 #LLToast_pay{ll_goodds_info:购买%1$s元的%2$s}
 
 /*支付显示方式*/
-#LLPay-Style{style:quickPay}//quickPay，verifyPay
+#LLPay-Style{style:verifyPay}//quickPay，verifyPay
 
 
 /*去掉横屏支持*/

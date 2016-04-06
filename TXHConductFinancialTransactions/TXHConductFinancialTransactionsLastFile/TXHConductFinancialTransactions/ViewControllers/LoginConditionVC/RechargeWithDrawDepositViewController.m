@@ -22,8 +22,8 @@
 #import "WithDrawResultViewController.h"
 #import "UserAssetModel.h"
 
-static NSString *kLLOidPartner = @"201408071000001543";                // 商户号
-static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
+static NSString *kLLOidPartner = @"201510201000546503";                // 商户号
+static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
 
 @interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,LLPaySdkDelegate>
 
@@ -593,7 +593,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                                          //证件号码 id_no 否 String
                                          @"acct_name":self.payPreModel.realName,
                                          //银行账号姓名 acct_name 否 String
-                                         //@"no_agree":self.payPreModel.signNum
+                                         @"no_agree":self.payPreModel.signNum
                                          }];
         
     }else{

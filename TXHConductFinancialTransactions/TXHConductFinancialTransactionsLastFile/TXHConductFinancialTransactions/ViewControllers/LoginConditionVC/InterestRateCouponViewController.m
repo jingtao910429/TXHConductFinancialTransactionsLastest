@@ -136,9 +136,9 @@
         cell.takeLabel.text = @"已经领取";
         
         if ([model.value floatValue] > 0) {
-            cell.contentLabel.text = [NSString stringWithFormat:@"加息劵+%.1f%%",[model.value floatValue]/100.00];
+            cell.contentLabel.text = [NSString stringWithFormat:@"加息劵+%.1f%%",[model.value floatValue]];
         }else{
-            cell.contentLabel.text = [NSString stringWithFormat:@"加息劵-%.1f%%",[model.value floatValue]/100.00];
+            cell.contentLabel.text = [NSString stringWithFormat:@"加息劵-%.1f%%",[model.value floatValue]];
         }
         
         BOOL isTake = YES;
@@ -284,7 +284,7 @@
 
 - (UITableView *)contentTableView {
     if (!_contentTableView) {
-        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 0, self.view.frame.size.width - 10, self.view.frame.size.height) style:UITableViewStyleGrouped];
+        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 0, self.view.frame.size.width - 10, self.view.frame.size.height - 64) style:UITableViewStyleGrouped];
         _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _contentTableView.delegate = self;
         _contentTableView.dataSource = self;
