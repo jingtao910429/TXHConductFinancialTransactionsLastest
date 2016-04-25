@@ -133,7 +133,7 @@
         InterestRateCouponModel *model = self.dataSource[indexPath.row/2];
         
         cell.backGroundImageView.image = [UIImage imageNamed:@"list_white"];
-        cell.takeLabel.text = @"已经领取";
+        cell.takeLabel.text = @"已失效";
         
         if ([model.value floatValue] > 0) {
             cell.contentLabel.text = [NSString stringWithFormat:@"加息劵+%.1f%%",[model.value floatValue]];
@@ -143,25 +143,35 @@
         
         BOOL isTake = YES;
         
-        if (1 == [model.type intValue]) {
+        if (1 == [model.type intValue] || 10 == [model.type intValue]) {
             
             if ([model.day intValue] > 0) {
-                cell.takeLabel.text = @"立即领取";
+                cell.takeLabel.text = @"使用中";
+                cell.restDayLabel.hidden = NO;
                 cell.backGroundImageView.image = [UIImage imageNamed:@"list_red"];
                 isTake = NO;
+            }else if ([model.day intValue] == 0) {
+                cell.restDayLabel.hidden = YES;
+            }else if ([model.day intValue] == -1) {
+                cell.takeLabel.text = @"未激活";
+                cell.restDayLabel.hidden = YES;
             }
             
         }else if (2 == [model.type intValue]) {
             
             if ([model.day intValue] > 0) {
-                cell.takeLabel.text = @"立即领取";
+                cell.takeLabel.text = @"使用中";
+                cell.restDayLabel.hidden = NO;
                 cell.backGroundImageView.image = [UIImage imageNamed:@"list_green"];
                 isTake = NO;
+            }else if ([model.day intValue] == 0) {
+                cell.restDayLabel.hidden = YES;
+            }else if ([model.day intValue] == -1) {
+                cell.takeLabel.text = @"未激活";
+                cell.restDayLabel.hidden = YES;
             }
             
         }
-        
-        
         
         cell.createTimeLabel.text = [NSString stringWithFormat:@"领取日期：%@",[[NSString stringWithFormat:@"%@",model.createDate] componentsSeparatedByString:@"+"][0]];
         
@@ -174,7 +184,7 @@
             
             NSTimeInterval now = [[formatter dateFromString:time] timeIntervalSinceNow];
             
-            cell.restDayLabel.text = [NSString stringWithFormat:@"剩余天数：%d天",(int)(now / (24 * 60 * 60))];
+            cell.restDayLabel.text = [NSString stringWithFormat:@"剩余天数：%d天",(int)(now / (24 * 60 * 60)) + 1];
         }else{
             cell.restDayLabel.text = @"剩余天数：0天";
         }

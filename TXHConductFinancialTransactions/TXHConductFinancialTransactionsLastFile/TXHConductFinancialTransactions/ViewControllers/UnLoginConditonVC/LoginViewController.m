@@ -259,13 +259,17 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField == self.userNameTextFiled) {
-
+        
+        if (self.isConfirmPassword) {
+            return YES;
+        }
+        
         //invertedSet方法是去反字符,把所有的除了kNumber里的字符都找出来(包含去空格功能)
         NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:kkNumber] invertedSet];
         //按cs分离出数组,数组按@""分离出字符串
         NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
         BOOL canChange = [string isEqualToString:filtered];
-
+        
         return canChange;
 
     }else if (textField == self.passwordTextFiled){
